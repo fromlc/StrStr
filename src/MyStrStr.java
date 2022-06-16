@@ -37,16 +37,35 @@ public class MyStrStr {
         if (haystack.equals(needle))
             return 0;
 
-        // .split() fails here when searching for "a" in "aaa"
-        String[] s = haystack.split(needle);
-        int leftStrlen = s[0].length();
-        if (leftStrlen < haystack.length())
-            return leftStrlen;
+        int index;
+        int lastSearchIndex = haystack.length() - needle.length();
+
+        // search for needle in successive substrings of haystack
+        for (int i = 0; i <= lastSearchIndex; i++) {
+            index = findSubstr(haystack, needle, i);
+
+            if (index != -1)
+                return index;
+        }
+
+        // needle substring not found
         return -1;
 
+        // Java .indexOf() implements strstr()!
         // int needleIndex = haystack.indexOf(needle);
         // return needleIndex;
         // TODO return haystack.indexOf(needle);
 
+    }
+
+    private static int findSubstr(String haystack, String needle, int startIndex) {
+        int i;
+
+        for (i = 0; i < needle.length(); i++) {
+            if (needle.charAt(i) != haystack.charAt(startIndex + i)) {
+                return -1;
+            }
+        }
+        return startIndex;
     }
 }

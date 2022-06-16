@@ -1,18 +1,22 @@
-## Getting Started
+## Implement strstr()
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+From https://leetcode.com/problems/implement-strstr/
 
-## Folder Structure
+Given two strings needle and haystack, return the index of the first occurrence of needle in haystack, or -1 if needle is not part of haystack.
 
-The workspace contains two folders by default, where:
+Return 0 when needle is an empty string. This is consistent to C's strstr() and Java's indexOf().
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+## Example 1:
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+Input: haystack = "hello", needle = "ll"
+Output: 2
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## Example 2:
 
-## Dependency Management
+Input: haystack = "aaaaa", needle = "bba"
+Output: -1
+ 
+## Constraints:
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+1 <= haystack.length, needle.length <= 104
+haystack and needle consist of only lowercase English characters.
